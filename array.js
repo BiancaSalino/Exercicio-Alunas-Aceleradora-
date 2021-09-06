@@ -19,7 +19,6 @@ function retornaMedia(prova) {
     const qtPontos = ((prova.p1 + prova.p2 + prova.p3) / 3).toFixed(1)
     return qtPontos
 }
-// Fazer uma função que retorne um array de nomes das aprovadas
 
 const aprovades = aprovades => aprovades >= 7
 const media_alunes = alunos.map(alune => {
@@ -30,9 +29,11 @@ const media_alunes = alunos.map(alune => {
         aprovades: aprovades(media)
     }
 })
-// Fazer uma função que retorne um array de nome das reprovadas
-const alunes_aprovades = media_alunes.filter(aprovades => aprovades.media >= 7)
-const alunes_reprovades = media_alunes.filter(reprovades => reprovades.media < 7)
+// Fazer uma função que retorne um array de nome das reprovadas e aprovadas
+const alunes_aprovades = media_alunes.filter(aprovades => aprovades.media >= 7).sort((a, b) => a.media - b.media).reverse()
+const alunes_reprovades = media_alunes.filter(reprovades => reprovades.media < 7).sort((a, b) => a.media - b.media)
 console.log(media_alunes)
 console.log(alunes_reprovades)
 console.log(alunes_aprovades)
+console.log(alunes_aprovades[0])
+console.log(alunes_reprovades[0])
