@@ -17,7 +17,8 @@ const alunos = [
 
 function retornaMedia(prova) {
     const qtPontos = ((prova.p1 + prova.p2 + prova.p3) / 3).toFixed(1)
-    return qtPontos
+    let pontos = parseFloat(qtPontos)
+    return pontos
 }
 
 const aprovades = aprovades => aprovades >= 7
