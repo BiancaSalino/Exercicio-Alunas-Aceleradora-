@@ -15,36 +15,24 @@ const alunos = [
 
 // Fazer uma função que retorne um array de todas as médias 
 
-function retornaMedia(prova){
-    const qtPontos = ((prova.p1 + prova.p2 + prova.p3)/3).toFixed(1)
+function retornaMedia(prova) {
+    const qtPontos = ((prova.p1 + prova.p2 + prova.p3) / 3).toFixed(1)
     return qtPontos
 }
 // Fazer uma função que retorne um array de nomes das aprovadas
 
-let alunes_aprovades  = media_alunes.filter(aprovades => aprovades.media >= 7) 
-
-
+const aprovades = aprovades => aprovades >= 7
 const media_alunes = alunos.map(alune => {
-    const media = retornaMedia(alune.prova) 
-    return{ 
-        nome: alune.nome, 
-        media, 
-        aprovades: alunes_aprovades(media)
-        }
-    })
-
-
-
-console.log(media_alunes)
-
-
-console.log(alunes_aprovades)
-
-
+    const media = retornaMedia(alune.prova)
+    return {
+        nome: alune.nome,
+        media,
+        aprovades: aprovades(media)
+    }
+})
 // Fazer uma função que retorne um array de nome das reprovadas
-const alunes_reprovades  = media_alunes.filter(aprovades => aprovades.media < 7) 
+const alunes_aprovades = media_alunes.filter(aprovades => aprovades.media >= 7)
+const alunes_reprovades = media_alunes.filter(reprovades => reprovades.media < 7)
+console.log(media_alunes)
 console.log(alunes_reprovades)
-
-
-
-
+console.log(alunes_aprovades)
